@@ -57,9 +57,7 @@ bool check(uint16_t n){
   return true;
 }
 
-
-
-bool temp(unsigned long val){
+bool double_check(unsigned long val){
   bool a = check(val);
   bool b = check(val);
   if(a==b){
@@ -68,13 +66,14 @@ bool temp(unsigned long val){
     return check(val);
   }
 }
+
 unsigned long binary_search(){
   unsigned long bounds[2] = {0, 65535};
   unsigned long mid;
  
   while(bounds[1]-bounds[0]>1){
     mid=(bounds[0]+bounds[1]+1)/2;
-    if(temp(mid)){
+    if(double_check(mid)){
       bounds[1]=mid;
     } else {
       bounds[0]=mid;
